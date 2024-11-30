@@ -1,0 +1,16 @@
+@media (max-width: 600px) {
+    /* Wrap image below the text in the intro section */
+    .intro {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .intro-image {
+        margin-top: 1rem;
+    }
+
+    /* Change navbar titles */
+    nav ul li a {
+     display: none;
+    }
+}
