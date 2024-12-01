@@ -13,4 +13,20 @@
     nav ul li a {
      display: none;
     }
+
+    .resources li {
+        flex-direction: column; /* Stack content and image vertically */
+        align-items:center;
+        height: auto;
+    }
+
+    .resource-content,
+    .resource-image {
+        flex: 1; /* Reset flex behavior */
+        height: auto; /* Full width for each section */
+    }
+
+    .resource-image {
+    display: none; /* Ensure the container is a flexbox */
+}
 }

@@ -5,6 +5,7 @@
     --card-background: #1e1e2f;
     --text-color: #e0e0e0;
     --hover-background: #272744;
+    --link-hover: #34d8eb;
 }
 
 /* General Reset */
@@ -54,10 +55,14 @@ nav ul li a {
 
 /* Hover Effect */
 nav ul li a:hover {
-    color: var(--primary-blue);
+    color: var(--link-hover);
 }
 
 /* Active Page Offset Underline */
+nav ul li a.active{
+    color: var(--primary-blue);
+}
+
 nav ul li a.active::after {
     content: "";
     position: absolute;
@@ -108,12 +113,13 @@ main {
 
 .intro-content a {
     color: var(--primary-blue);
-    text-decoration: none;
+    text-decoration: underline;
     font-weight: 600;
 }
 
 .intro-content a:hover {
     text-decoration: underline;
+    color: var(--link-hover);
 }
 
 .intro-image {
@@ -198,15 +204,21 @@ main {
     color: var(--text-color);
 }
 
+.project-content h3 {
+    color: #979797;
+}
+
 .project-content p {
     font-size: 1rem;
     color: var(--text-color);
     line-height: 1.5;
-    margin-top: 1.5rem;
+    margin-top: .5rem;
 }
 
-.project-content h3 {
-    color: var(--primary-blue)
+
+
+.project-content ul {
+    padding-left: 1.5rem;
 }
 
 .project-image {
@@ -254,10 +266,16 @@ main {
         width: 100%; /* Full width for each section */
     }
 
+    .project-image {
+        order: -1; /* Bring the image before the text */
+    }
+
     .project-image img {
         width: 100%; /* Make the image responsive */
+        height: auto; /* Maintain aspect ratio */
     }
 }
+
 
 p a { /*the tag on eli's account*/
     color: var(--accent); /* Use the accent color variable */
@@ -277,58 +295,79 @@ p a:hover {
 /* Resources Section */
 .resources li {
     display: flex;
+    justify-content: space-between; /* Space between content and image */
     align-items: center;
     background: var(--card-background);
-    border-radius: 0.5rem;
-    padding: 0.5rem 0.5rem;
+    border-radius: 1rem;
+    padding: 1rem;
     margin-bottom: 1rem;
     position: relative;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    overflow: hidden; /* Ensure content stays within bounds */
 }
 
 .resources li:hover {
-    transform: scale(1.01); /* Only slight movement on hover */
+    transform: scale(1.01); /* Slight hover effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow on hover */
 }
 
 .resource-content {
-    flex: 2;
-    margin-right: 20px;
+    flex: 5;
+    padding-right: 1rem;
+}
+
+.resource-content h1 {
+    font-size: 1.5rem;
+    color: var(--text-color);
 }
 
 .resource-content a {
     font-size: 1.1rem;
     color: var(--primary-blue);
-    text-decoration: none;
+    text-decoration: underline;
     font-weight: 600;
-    display: flex;
-    align-items: center;
 }
 
 .resource-content a:hover {
-    text-decoration: underline;
+    color: var(--link-hover);
 }
 
 .resource-content a::after {
-    content: '🔗';
-    margin-left: 8px;
-    font-size: 1.1rem;
+    content: '🔗'; /* Unicode for the link icon */
+    margin-left: 8px; /* Space between text and icon */
+    font-size: 1rem; /* Adjust size of the icon */
+    color: var(--primary-blue); /* Ensure the icon matches the link color */
+    transition: color 0.3s ease; /* Add a transition for hover effects */
 }
 
+.resource-content a:hover::after {
+    color: var(--primary-blue); /* Optionally darken the icon color on hover */
+}
 .resource-content p {
-    margin-top: 10px;
-    color: #bbbbbb;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-top: 0.5rem;
+    line-height: 1.5;
 }
 
 .resource-image {
-    flex-shrink: 0;
-    width: 180px;
-    height: 120px;
-    background-color: #333333;
-    border-radius: 4px;
-    background-image: url('https://via.placeholder.com/180x120');
-    background-size: cover;
-    background-position: center;
+    flex: 1;
+    overflow: hidden; /* Ensure image stays within bounds */
+    border-radius: 0.5rem;
+    line-height: 0; /* Remove space below inline elements */
+}
+
+.resource-image img {
+    width: 100%; /* Fill allocated width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure image fits proportionally */
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.resource-image:hover img {
+    transform: scale(1.05); /* Slight zoom effect on hover */
 }
 
 /* Footer */
