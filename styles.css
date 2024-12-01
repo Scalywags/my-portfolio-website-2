@@ -123,10 +123,12 @@ main {
     align-items: center;
 }
 
+/* Target the main profile picture */
 .intro-image img {
-    max-width: 300px;
-    border-radius: 50%;
-    border: 3px solid var(--card-background);
+    width: 18rem; /* Adjust size as needed */
+    height: 18rem; /* Make it a square */
+    object-fit: cover; /* Ensure the image scales proportionally within the square */
+    border-radius: 1rem; /* Rounded edges */
 }
 
 
@@ -212,12 +214,31 @@ main {
     line-height: 0; /* Remove space below inline elements */
 }
 
+
 .project-image img {
     width: 100%; /* Fill the allocated width */
     height: auto; /* Maintain aspect ratio */
     border-radius: 0.5rem; /* Rounded corners */
     object-fit: cover; /* Ensure image fits proportionally */
     display: block; /* Remove inline element gaps */
+    transition: transform 0.3s;
+}
+
+.project-image:hover img{
+    transform: scale(1.05);
+}
+
+.project-image {
+    overflow: hidden; /* Ensures the zoomed image doesn't overflow the container */
+    border-radius: 10px; /* Match the border radius of the image */
+}
+
+.project-image img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.project-image:hover img {
+    transform: scale(1.1); /* Zoom in slightly */
 }
 
 /* Media Query for Smaller Screens */
