@@ -154,47 +154,102 @@ main {
 .gallery div:hover img {
     transform: scale(1.05);
 }
+
 /* Projects Section */
+.commentary {
+    text-align: center; /* Centers the text horizontally */
+    font-style: italic; /* Makes the text italic */
+    margin-top: 1rem; /* Adds space above the paragraph */
+    color: var(--text-color); /* Optional: subtle text color */
+    font-size: 1rem; /* Adjust font size if needed */
+    margin-bottom: 1rem;
+}
+
 .projects article {
-    display: flex; /* Use flexbox for layout */
+    display: flex; /* Align content and image side by side */
     justify-content: space-between; /* Space between content and image */
     align-items: center; /* Vertically align content and image */
     background: var(--card-background);
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
+    border-radius: 1rem;
+    padding: 1rem; /* Adjust padding for a balanced look */
+    margin-bottom: 1rem; /* Space between cards */
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 15rem; /* Increase card height */
+    width: 100%; /* Full-width cards */
+    max-width: 100%; /* Prevent overflow */
+    height: auto; /* Flexible height to adapt to content */
     overflow: hidden; /* Ensure content stays within bounds */
 }
 
 .projects article:hover {
-    transform: translateY(-5px);
+    transform: scale(1.01);
 }
 
-.projects article .project-content {
-    flex: 2; /* Allow text to take more space */
+.project-content {
+    flex: 1; /* Take up half the card width */
+    padding-right: 1rem; /* Add spacing between content and image */
+    padding-bottom: 1rem;
 }
 
-.projects article h2 {
+.project-content h2 {
     font-size: 1.5rem;
     color: var(--text-color);
-    margin-bottom: 10px;
 }
 
-.projects article p {
+.project-content p {
     font-size: 1rem;
-    color: #bbbbbb;
+    color: var(--text-color);
     line-height: 1.5;
+    margin-top: 1.5rem;
 }
 
-.projects article .project-image {
-    flex: 1; /* Allocate space for the image */
-    max-width: 40rem; /* Set a maximum width for the image */
-    height: 100%; /* Ensure it fills the card height */
-    background-color: #501515; /* Placeholder background */
-    border-radius: .5rem;
+.project-content h3 {
+    color: var(--primary-blue)
+}
+
+.project-image {
+    flex: 1; /* Take up half the card width */
+    line-height: 0; /* Remove space below inline elements */
+}
+
+.project-image img {
+    width: 100%; /* Fill the allocated width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 0.5rem; /* Rounded corners */
+    object-fit: cover; /* Ensure image fits proportionally */
+    display: block; /* Remove inline element gaps */
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+    .projects article {
+        flex-direction: column; /* Stack content and image vertically */
+        height: auto; /* Allow flexible height */
+    }
+
+    .project-content,
+    .project-image {
+        flex: none; /* Reset flex behavior */
+        width: 100%; /* Full width for each section */
+    }
+
+    .project-image img {
+        width: 100%; /* Make the image responsive */
+    }
+}
+
+p a { /*the tag on eli's account*/
+    color: var(--accent); /* Use the accent color variable */
+    text-decoration: underline; /* Ensure the underline remains visible */
+    font-family: inherit; /* Inherit the font family from the parent paragraph */
+    font-size: inherit; /* Match the font size of the parent paragraph */
+    font-weight: inherit; /* Optional: Ensure consistency in font weight */
+    color: var(--primary-blue);
+}
+
+p a:hover {
+    text-decoration: none; /* Optional: Remove underline on hover */
+    color: darken(var(--accent), 10%); /* Optional: Slightly darken color on hover */
 }
 
 
@@ -295,4 +350,39 @@ footer a:hover {
 
 main {
     flex: 1;
+}
+
+/* Styling the Modeal */
+/* Fullscreen modal container */
+.image-modal {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9); /* Dark overlay */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal image */
+.image-modal img {
+    max-width: 90%; /* Restrict to fit the screen */
+    max-height: 90%; /* Prevent overflow */
+    border-radius: 0.5rem;
+}
+
+/* Close button */
+.image-modal .close-btn {
+    position: absolute;
+    top: 3rem;
+    right: 5rem;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 1001;
 }
