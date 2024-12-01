@@ -191,13 +191,10 @@ main {
 
 .projects article .project-image {
     flex: 1; /* Allocate space for the image */
-    max-width: 150px; /* Set a maximum width for the image */
+    max-width: 40rem; /* Set a maximum width for the image */
     height: 100%; /* Ensure it fills the card height */
-    background-color: #333333; /* Placeholder background */
-    border-radius: 8px;
-    background-image: url('https://via.placeholder.com/150x250'); /* Placeholder image */
-    background-size: cover;
-    background-position: center;
+    background-color: #501515; /* Placeholder background */
+    border-radius: .5rem;
 }
 
 
