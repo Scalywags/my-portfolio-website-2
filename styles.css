@@ -141,30 +141,41 @@ main {
 }
 
 
+/* Gallery Masonry Layout */
+
 /* Gallery Section */
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    margin-top: 40px;
+    column-count: 3; /* Number of masonry columns */
+    column-gap: 15px; /* Spacing between columns */
+    width: 100%; /* Ensure the gallery takes up the full width */
 }
 
-.gallery div {
+.masonry-item {
+    display: inline-block; /* Ensure items behave like inline elements */
+    margin-bottom: 15px; /* Spacing between rows */
+    width: 100%; /* Ensure items fit within the column */
+}
+
+
+.masonry-item {
+    break-inside: avoid; /* Prevent item breaks within columns */
     overflow: hidden;
     border-radius: var(--border-radius);
     background: var(--card-background);
     position: relative;
 }
 
-.gallery img {
+.masonry-item img {
     width: 100%;
     display: block;
     transition: transform 0.3s ease;
+    object-fit: cover; /* Ensures consistent image scaling */
 }
 
-.gallery div:hover img {
-    transform: scale(1.05);
+.masonry-item:hover img {
+    transform: scale(1.05); /* Add zoom effect */
 }
+
 
 /* Projects Section */
 .commentary {
