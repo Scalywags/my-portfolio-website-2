@@ -10,8 +10,8 @@
     }
 
     /* Change navbar titles */
-    nav ul li a {
-     display: none;
+        nav {
+        display: none;
     }
 
     .resources li {
@@ -29,4 +29,86 @@
     .resource-image {
     display: none; /* Ensure the container is a flexbox */
 }
+}
+
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+    .projects article {
+        flex-direction: column; /* Stack content and image vertically */
+        height: auto; /* Allow flexible height */
+    }
+
+    .project-content,
+    .project-image {
+        flex: none; /* Reset flex behavior */
+        width: 100%; /* Full width for each section */
+    }
+
+    .project-image {
+        order: -1; /* Bring the image before the text */
+    }
+
+    .project-image img {
+        width: 100%; /* Make the image responsive */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .title-row .date {
+       display: none;
+    }
+}
+
+
+/* Gallery media Qs */
+
+@media (max-width: 1400px) {
+    .gallery{
+        width: 60%; /* Ensure the gallery takes up the full width */
+    }
+}
+
+@media (max-width: 1000px) {
+    .gallery{
+        width: 80%; /* Ensure the gallery takes up the full width */
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery{
+        width: 100%; /* Ensure the gallery takes up the full width */
+        column-gap: .5rem; /* Spacing between columns */
+        column-count: 1;
+    }
+    .masonry-item {
+        margin-bottom: 0rem; /* Spacing between rows */
+    }
+}
+
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+    .resources li {
+        flex-direction: column; /* Stack content and image vertically */
+        height: auto; /* Allow flexible height */
+    }
+
+    .resource-content {
+        flex: none; /* Reset flex behavior */
+        width: 100%; /* Full width for text content */
+        padding-right: 0;
+    }
+
+    .resource-image {
+        flex: none; /* Reset flex behavior */
+        width: 80%; /* Reduce the image size */
+        margin: 1rem auto; /* Center the image laterally */
+        height: auto; /* Adjust height dynamically */
+    }
+
+    .resource-image img {
+        width: 100%; /* Ensure image scales to full width */
+        height: auto; /* Maintain aspect ratio */
+        object-fit: cover; /* Ensure proper fit */
+    }
 }

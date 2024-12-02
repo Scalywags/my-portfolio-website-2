@@ -7,6 +7,8 @@
     --text-color-dark: #6b6b6b;
     --hover-background: #272744;
     --link-hover: #34d8eb;
+    --grad-start-color: #7f2791;
+    --grad-end-color: #dbc311;
 
     --border-radius: 1rem;
 }
@@ -58,8 +60,9 @@ nav ul li a {
 
 /* Hover Effect */
 nav ul li a:hover {
-    color: var(--link-hover);
+    color: var(--primary-blue)
 }
+
 
 /* Active Page Offset Underline */
 nav ul li a.active{
@@ -152,13 +155,13 @@ main {
 .stylized-line {
     width: 100%; /* Adjust the width as needed */
     height: .25rem; /* Thickness of the line */
-    background: linear-gradient(to right, var(--primary-blue), var(--text-color)); /* Gradient effect */
+    background: linear-gradient(to right, var(--grad-start-color), var(--grad-end-color)); /* Gradient effect */
     border-radius: .125rem; /* Add rounding for a smooth look */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Optional: Add subtle shadow */
 }
 
 .gradient-text {
-    background: linear-gradient(to right, var(--primary-blue), var(--text-color)); /* Gradient colors */
+    background: linear-gradient(to right, var(--grad-start-color), var(--grad-end-color)); /* Gradient colors */
     -webkit-background-clip: text; /* Clip background to text */
     -webkit-text-fill-color: transparent; /* Make text transparent to show background */
     background-clip: text; /* For non-webkit browsers */
@@ -172,29 +175,6 @@ main {
     column-gap: .8rem; /* Spacing between columns */
     width: 60%; /* Ensure the gallery takes up the full width */
     margin: auto;
-}
-
-@media (max-width: 1400px) {
-    .gallery{
-        width: 60%; /* Ensure the gallery takes up the full width */
-    }
-}
-
-@media (max-width: 1000px) {
-    .gallery{
-        width: 80%; /* Ensure the gallery takes up the full width */
-    }
-}
-
-@media (max-width: 600px) {
-    .gallery{
-        width: 100%; /* Ensure the gallery takes up the full width */
-        column-gap: .5rem; /* Spacing between columns */
-        column-count: 1;
-    }
-    .masonry-item {
-        margin-bottom: 0rem; /* Spacing between rows */
-    }
 }
 
 .masonry-item {
@@ -216,7 +196,7 @@ main {
 }
 
 .masonry-item:hover img {
-    transform: scale(1.05); /* Add zoom effect */
+    transform: scale(1.02); /* Add zoom effect */
 }
 
 
@@ -295,7 +275,7 @@ main {
 }
 
 .project-image:hover img{
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 .project-image {
@@ -334,38 +314,6 @@ main {
     text-align: right; /* Aligns the date to the right of the container */
     font-style: italic;
 }
-
-
-
-
-
-/* Media Query for Smaller Screens */
-@media (max-width: 768px) {
-    .projects article {
-        flex-direction: column; /* Stack content and image vertically */
-        height: auto; /* Allow flexible height */
-    }
-
-    .project-content,
-    .project-image {
-        flex: none; /* Reset flex behavior */
-        width: 100%; /* Full width for each section */
-    }
-
-    .project-image {
-        order: -1; /* Bring the image before the text */
-    }
-
-    .project-image img {
-        width: 100%; /* Make the image responsive */
-        height: auto; /* Maintain aspect ratio */
-    }
-
-    .title-row .date {
-       display: none;
-    }
-}
-
 
 p a { /*the tag on eli's account*/
     color: var(--accent); /* Use the accent color variable */
@@ -451,34 +399,7 @@ p a:hover {
 }
 
 .resource-image:hover img {
-    transform: scale(1.05); /* Slight zoom effect on hover */
-}
-
-/* Media Query for Smaller Screens */
-@media (max-width: 768px) {
-    .resources li {
-        flex-direction: column; /* Stack content and image vertically */
-        height: auto; /* Allow flexible height */
-    }
-
-    .resource-content {
-        flex: none; /* Reset flex behavior */
-        width: 100%; /* Full width for text content */
-        padding-right: 0;
-    }
-
-    .resource-image {
-        flex: none; /* Reset flex behavior */
-        width: 80%; /* Reduce the image size */
-        margin: 1rem auto; /* Center the image laterally */
-        height: auto; /* Adjust height dynamically */
-    }
-
-    .resource-image img {
-        width: 100%; /* Ensure image scales to full width */
-        height: auto; /* Maintain aspect ratio */
-        object-fit: cover; /* Ensure proper fit */
-    }
+    transform: scale(1.02); /* Slight zoom effect on hover */
 }
 
 
@@ -569,11 +490,11 @@ main {
 }
 
 .image-modal .close-btn:hover {
-    background: rgba(189, 70, 70, 0.8); /* Change background to red on hover */
+    background: radial-gradient(circle, var(--grad-start-color), var(--hover-background)); /* Gradient effect */ /* Change background to red on hover */
 }
 
 .image-modal .close-btn-2:hover {
-    background: rgba(189, 70, 70, 0.8); /* Change background to red on hover */
+    background: radial-gradient(circle, var(--grad-start-color), var(--hover-background)); /* Gradient effect */ /* Change background to red on hover */
 }
 
 .image-modal p {
