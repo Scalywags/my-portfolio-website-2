@@ -140,24 +140,67 @@ main {
     border-radius: var(--border-radius); /* Rounded edges */
 }
 
+.stylized-line {
+    width: 100%; /* Adjust the width as needed */
+    height: 4px; /* Thickness of the line */
+    background: linear-gradient(to right, var(--primary-blue), var(--text-color)); /* Gradient effect */
+    margin: 20px 0; /* Add spacing around the line */
+    border-radius: 2px; /* Add rounding for a smooth look */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Optional: Add subtle shadow */
+}
+
+.stylized-line {
+    width: 100%; /* Adjust the width as needed */
+    height: .25rem; /* Thickness of the line */
+    background: linear-gradient(to right, var(--primary-blue), var(--text-color)); /* Gradient effect */
+    border-radius: .125rem; /* Add rounding for a smooth look */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Optional: Add subtle shadow */
+}
+
+.gradient-text {
+    background: linear-gradient(to right, var(--primary-blue), var(--text-color)); /* Gradient colors */
+    -webkit-background-clip: text; /* Clip background to text */
+    -webkit-text-fill-color: transparent; /* Make text transparent to show background */
+    background-clip: text; /* For non-webkit browsers */
+    color: transparent; /* Transparent text for compatibility */
+}
+
 
 /* Gallery Masonry Layout */
-
-/* Gallery Section */
 .gallery {
-    column-count: 3; /* Number of masonry columns */
-    column-gap: 15px; /* Spacing between columns */
-    width: 100%; /* Ensure the gallery takes up the full width */
+    column-count: 2; /* Number of masonry columns */
+    column-gap: .8rem; /* Spacing between columns */
+    width: 60%; /* Ensure the gallery takes up the full width */
+    margin: auto;
+}
+
+@media (max-width: 1400px) {
+    .gallery{
+        width: 60%; /* Ensure the gallery takes up the full width */
+    }
+}
+
+@media (max-width: 1000px) {
+    .gallery{
+        width: 80%; /* Ensure the gallery takes up the full width */
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery{
+        width: 100%; /* Ensure the gallery takes up the full width */
+        column-gap: .5rem; /* Spacing between columns */
+        column-count: 1;
+    }
+    .masonry-item {
+        margin-bottom: 0rem; /* Spacing between rows */
+    }
 }
 
 .masonry-item {
     display: inline-block; /* Ensure items behave like inline elements */
-    margin-bottom: 15px; /* Spacing between rows */
+    margin-bottom: .8rem; /* Spacing between rows */
     width: 100%; /* Ensure items fit within the column */
-}
-
-
-.masonry-item {
     break-inside: avoid; /* Prevent item breaks within columns */
     overflow: hidden;
     border-radius: var(--border-radius);
@@ -317,6 +360,10 @@ main {
         width: 100%; /* Make the image responsive */
         height: auto; /* Maintain aspect ratio */
     }
+
+    .title-row .date {
+       display: none;
+    }
 }
 
 
@@ -334,12 +381,11 @@ p a:hover {
     color: darken(var(--accent), 10%); /* Optional: Slightly darken color on hover */
 }
 
-
-/* Resources Section */
+/* General Styles for Resources Section */
 .resources li {
     display: flex;
-    justify-content: space-between; /* Space between content and image */
-    align-items: center;
+    justify-content: space-between;
+    align-items: stretch; /* Ensure the card's content and image align properly */
     background: var(--card-background);
     border-radius: var(--border-radius);
     padding: 1rem;
@@ -347,6 +393,7 @@ p a:hover {
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
+    height: auto; /* Allow height to adjust dynamically */
     overflow: hidden; /* Ensure content stays within bounds */
 }
 
@@ -356,8 +403,11 @@ p a:hover {
 }
 
 .resource-content {
-    flex: 5;
+    flex: 5; /* Allocate more space to text content */
     padding-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center-align text vertically */
 }
 
 .resource-content h1 {
@@ -376,17 +426,6 @@ p a:hover {
     color: var(--link-hover);
 }
 
-.resource-content a::after {
-    content: '🔗'; /* Unicode for the link icon */
-    margin-left: 8px; /* Space between text and icon */
-    font-size: 1rem; /* Adjust size of the icon */
-    color: var(--primary-blue); /* Ensure the icon matches the link color */
-    transition: color 0.3s ease; /* Add a transition for hover effects */
-}
-
-.resource-content a:hover::after {
-    color: var(--primary-blue); /* Optionally darken the icon color on hover */
-}
 .resource-content p {
     font-size: 1rem;
     color: var(--text-color);
@@ -395,15 +434,17 @@ p a:hover {
 }
 
 .resource-image {
-    flex: 1;
+    flex: 1; /* Allocate less space to the image */
+    max-width: 35%; /* Ensure the image does not overpower the content */
+    height: auto; /* Adjust height dynamically */
     overflow: hidden; /* Ensure image stays within bounds */
     border-radius: 0.5rem;
     line-height: 0; /* Remove space below inline elements */
 }
 
 .resource-image img {
-    width: 100%; /* Fill allocated width */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%; /* Image fills allocated width */
+    height: 100%; /* Ensure image height fills its container */
     object-fit: cover; /* Ensure image fits proportionally */
     border-radius: 0.5rem;
     transition: transform 0.3s ease-in-out;
@@ -412,6 +453,34 @@ p a:hover {
 .resource-image:hover img {
     transform: scale(1.05); /* Slight zoom effect on hover */
 }
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+    .resources li {
+        flex-direction: column; /* Stack content and image vertically */
+        height: auto; /* Allow flexible height */
+    }
+
+    .resource-content {
+        flex: none; /* Reset flex behavior */
+        width: 100%; /* Full width for text content */
+        padding-right: 0;
+    }
+
+    .resource-image {
+        flex: none; /* Reset flex behavior */
+        width: 80%; /* Reduce the image size */
+        margin: 1rem auto; /* Center the image laterally */
+        height: auto; /* Adjust height dynamically */
+    }
+
+    .resource-image img {
+        width: 100%; /* Ensure image scales to full width */
+        height: auto; /* Maintain aspect ratio */
+        object-fit: cover; /* Ensure proper fit */
+    }
+}
+
 
 /* Footer */
 /* Full-height layout for footer sticking */
@@ -434,7 +503,6 @@ footer {
     background: var(--card-background);
     text-align: center;
     padding: 20px 10px;
-    border-top: 1px solid #333333;
     margin-top: auto; /* Ensures footer is pushed to the bottom when content is small */
 }
 
@@ -468,6 +536,7 @@ main {
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    flex-direction: column; /* Stack items vertically */
 }
 
 /* Modal image */
@@ -475,10 +544,11 @@ main {
     max-width: 90%; /* Restrict to fit the screen */
     max-height: 90%; /* Prevent overflow */
     border-radius: 0.5rem;
+    display: block;
 }
 
 /* Close button */
-.image-modal .close-btn {
+.image-modal .close-btn, .close-btn-2 {
     position: absolute;
     top: 3rem;
     right: 5rem;
@@ -502,3 +572,50 @@ main {
     background: rgba(189, 70, 70, 0.8); /* Change background to red on hover */
 }
 
+.image-modal .close-btn-2:hover {
+    background: rgba(189, 70, 70, 0.8); /* Change background to red on hover */
+}
+
+.image-modal p {
+    position: absolute; /* Allows positioning relative to the modal container */
+    bottom: 5%; /* Place near the bottom of the image */
+    width:90%; /* Match the image width */
+    background-color: rgba(0, 0, 0, 0.75); /* Black background with transparency */
+    color: var(--text-color); /* White text for contrast */
+    text-align: center; /* Center the text horizontally */
+    padding: 0.5rem; /* Add some padding around the text */
+    border-radius: 0.25rem; /* Add a slight rounding to the edges */
+    margin: 0; /* Remove default margin */
+
+}
+
+.index-image-container {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.index-image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    display: block;
+}
+
+.index-image-container .index-caption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Mostly opaque black background */
+    color: white;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-family: sans-serif;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}

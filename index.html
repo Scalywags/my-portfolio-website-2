@@ -22,7 +22,7 @@
     <main>
     <section class="intro">
         <div class="intro-content">
-            <h1>Hi, I’m Jack!</h1>
+            <h1 class=gradient-text>Hi, I’m Jack!</h1>
             <p>Mechanical Engineering & Business Major, Besio Scholar @ Notre Dame</p>
             <p>I'm an engineer by education and a designer by heart. I like finding and solving problems with great people.</p>
             <p>Click on any image below to learn more about me, or jump to my <a href="projects.html">projects</a>.</p>
@@ -31,18 +31,53 @@
             <img src="./images/about/main.png" alt="Image of Jack">
         </div>
     </section>
+    <div class="stylized-line"></div>
     <section class="gallery masonry">
-        <div class="masonry-item"><img src="./images/about/stadium.jpg" alt="Stadium"></div>
-        <div class="masonry-item"><img src="./images/about/mountains.jpg" alt="Mountains"></div>
-        <div class="masonry-item"><img src="./images/about/doggos.jpg" alt="Doggos"></div>
-        <div class="masonry-item"><img src="./images/about/jump.jpg" alt="Jumping off rock"></div>
-        <div class="masonry-item"><img src="./images/about/playroom.jpg" alt="Jumping off rock"></div>
-        <div class="masonry-item"><img src="./images/about/train.jpg" alt="Jumping off rock"></div>
+        <div class="masonry-item">
+            <img src="./images/about/playroom.jpg" alt="Playroom" onclick="openModal2(this.src, 'Highly optimized process using industry 4.0 standards')">
+        </div>
+        <div class="masonry-item">
+            <img src="./images/about/jump.jpg" alt="Jumping off rock" onclick="openModal2(this.src, 'YEET')">
+        </div>
+        <div class="masonry-item">
+            <img src="./images/about/mountains.jpg" alt="Mountains" onclick="openModal2(this.src, 'Mountains with my childhood best friend!')">
+        </div>
+        <div class="masonry-item">
+            <img src="./images/about/doggos.jpg" alt="Doggos" onclick="openModal2(this.src, 'The two most cute and fluffly B2B SaaS sales reps I know')">
+        </div>
+        <div class="masonry-item">
+            <img src="./images/about/train.jpg" alt="Train" onclick="openModal2(this.src, 'Being in the air is fun!')">
+        </div>
+        <div class="masonry-item">
+            <img src="./images/about/stadium.jpg" alt="Stadium" onclick="openModal2(this.src, 'The ND Stadium!')">
+        </div>
     </section>
 
     </main>
     <footer>
+        <p></p>
         <a href="https://www.linkedin.com/in/jackscalise/" target="_blank" rel="noopener noreferrer">LinkedIn</a> 
     </footer>
+    <div class="image-modal" id="imageModal">
+        <button class="close-btn-2" onclick="closeModal2()">✖</button>
+        <img id="modalImage" src="" alt="Fullscreen Image">
+        <p>text</p>
+    </div>
+    <script>
+        function openModal2(imageSrc, text) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalText = modal.querySelector('p'); // Find the <p> element in the modal
+            modalImage.src = imageSrc; // Set the image source
+            modalText.textContent = text; // Update the text content
+            modal.style.display = 'flex'; // Show the modal
+        }
+
+
+        function closeModal2() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
