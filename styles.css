@@ -45,7 +45,7 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 20px;
+    margin: 0 2rem;
 }
 
 /* Navbar Links */
@@ -539,4 +539,87 @@ main {
     font-family: sans-serif;
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
+}
+
+/* Hamburger Navigation Styles */
+#hamburger-nav{
+    display:none;
+}
+.hamburger-menu {
+    position: relative;
+}
+
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+    position: fixed; /* Keep the icon fixed on the screen */
+    top: 2rem;
+    right: 2rem;
+    z-index: 1100; /* Ensure it's always on top of the menu */
+}
+
+.hamburger-icon span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white; /* White icon bars */
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Menu Styles */
+.menu-links {
+    position: fixed;
+    top: 0;
+    right: -100vw; /* Start outside of the screen */
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--card-background);
+    padding-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000; /* Ensure it is behind the hamburger icon */
+}
+
+.menu-links.open {
+    right: 0; /* Slide into view */
+}
+
+.menu-links li {
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.menu-links a {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 2rem 1rem;
+    transition: color 0.3s ease-in-out;
+    width: 100%;
+}
+
+.menu-links a:hover {
+    color: var(--primary-blue);
+}
+
+/* Icon animation for open/close */
+.hamburger-icon.open span:first-child {
+    transform: rotate(45deg) translate(.45rem, .45rem);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-icon.open span:last-child {
+    transform: rotate(-45deg) translate(.45rem, -.45rem);
 }
