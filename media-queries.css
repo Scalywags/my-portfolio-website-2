@@ -66,6 +66,12 @@
     .title-row .date {
        display: none;
     }
+
+    body.projects-page .project-image img {
+        width: 70%;
+        margin: auto;
+        display: block;
+    }
 }
 
 

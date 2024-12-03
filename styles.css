@@ -92,8 +92,8 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
-    padding: 40px 20px;
+    gap: 1.2rem;
+    padding: 0 1.2rem;
     max-width: 1200px;
     margin: auto;
 }
@@ -107,13 +107,13 @@ main {
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--text-color);
-    margin-bottom: 10px;
+    margin-bottom: .8rem;
 }
 
 .intro-content p {
     font-size: 1rem;
     color: #bbbbbb;
-    margin-bottom: 20px;
+    margin-bottom: 1.2rem;
     line-height: 1.6;
 }
 
@@ -144,24 +144,17 @@ main {
 }
 
 .stylized-line {
-    width: 100%; /* Adjust the width as needed */
-    height: 4px; /* Thickness of the line */
-    background: linear-gradient(to right, var(--primary-blue), var(--text-color)); /* Gradient effect */
-    margin: 20px 0; /* Add spacing around the line */
-    border-radius: 2px; /* Add rounding for a smooth look */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Optional: Add subtle shadow */
-}
-
-.stylized-line {
-    width: 100%; /* Adjust the width as needed */
-    height: .25rem; /* Thickness of the line */
-    background: linear-gradient(to right, var(--grad-start-color), var(--grad-end-color)); /* Gradient effect */
-    border-radius: .125rem; /* Add rounding for a smooth look */
+    width: 90%; /* Adjust the width as needed */
+    height: .2rem; /* Thickness of the line */
+    background: var(--text-color-dark);
+    margin: 2rem auto;
+    display: block;
+    border-radius: .1rem; /* Add rounding for a smooth look */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Optional: Add subtle shadow */
 }
 
 .gradient-text {
-    background: linear-gradient(to right, var(--grad-start-color), var(--grad-end-color)); /* Gradient colors */
+    background: var(--text-color);
     -webkit-background-clip: text; /* Clip background to text */
     -webkit-text-fill-color: transparent; /* Make text transparent to show background */
     background-clip: text; /* For non-webkit browsers */
@@ -234,7 +227,6 @@ main {
     margin: 0px;
     flex: 1; /* Take up half the card width */
     padding-right: 1rem; /* Add spacing between content and image */
-
 }
 
 .project-content h2 {
@@ -264,6 +256,9 @@ main {
     line-height: 0; /* Remove space below inline elements */
 }
 
+.mini-flex {
+    flex: .5;
+}
 
 .project-image img {
     width: 100%; /* Fill the allocated width */
@@ -490,11 +485,11 @@ main {
 }
 
 .image-modal .close-btn:hover {
-    background: radial-gradient(circle, var(--grad-start-color), var(--hover-background)); /* Gradient effect */ /* Change background to red on hover */
+    background: red;
 }
 
 .image-modal .close-btn-2:hover {
-    background: radial-gradient(circle, var(--grad-start-color), var(--hover-background)); /* Gradient effect */ /* Change background to red on hover */
+    background: red;
 }
 
 .image-modal p {
@@ -623,3 +618,9 @@ main {
 .hamburger-icon.open span:last-child {
     transform: rotate(-45deg) translate(.45rem, -.45rem);
 }
+
+  
+.commentary#proj-comm {
+    margin-bottom: 1.5rem; /* Adds a 1.5 rem margin at the bottom */
+  }
+  
