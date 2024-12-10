@@ -471,7 +471,7 @@ main {
     font-size: 1.5rem; /* Slightly reduce font size for better fit */
     color: white;
     cursor: pointer;
-    background: rgba(0, 0, 0, 0.8); /* Dark background with transparency */
+    background: rgba(179, 66, 66, 0.8); /* Dark background with transparency */
     border: none;
     border-radius: 50%; /* Makes it circular */
     padding: 0.5rem; /* Adds spacing inside the button */
