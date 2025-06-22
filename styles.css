@@ -1,16 +1,16 @@
 /* Color Variables */
 :root {
-    --primary-blue: #009ffd;
-    --background-dark: #121212;
-    --card-background: #1e1e2f;
-    --text-color: #e0e0e0;
-    --text-color-dark: #6b6b6b;
-    --hover-background: #272744;
-    --link-hover: #34d8eb;
+    --primary-blue: hsl(0, 0%, 30%);
+    --background-dark: hsl(0, 0%, 93%); /* formerly #121212 */
+    --card-background: hsl(0, 0%, 90%); /* formerly #1e1e2f - very light purple */
+    --text-color: hsl(0, 0%, 12%); /* formerly #e0e0e0 */
+    --text-color-dark: hsl(0, 0%, 58%); /* formerly #6b6b6b */
+    --hover-background: hsl(240, 24%, 89%); /* formerly #272744 */
+    --link-hover: #001113;
     --grad-start-color: #7f2791;
     --grad-end-color: #dbc311;
 
-    --border-radius: 1rem;
+    --border-radius: 0.25rem;
 }
 
 /* General Reset */
@@ -22,15 +22,19 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    color: var(--text-color);
+    color: rgb(117, 120, 122);
     background-color: var(--background-dark);
     margin: 0;
     line-height: 1.8;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
 header {
     background: var(--card-background);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -66,7 +70,7 @@ nav ul li a:hover {
 
 /* Active Page Offset Underline */
 nav ul li a.active{
-    color: var(--primary-blue);
+    color: var(--link-hover);
 }
 
 nav ul li a.active::after {
@@ -77,7 +81,7 @@ nav ul li a.active::after {
     transform: translateX(-50%);
     width: 60%; /* Adjust underline width */
     height: 2px; /* Underline thickness */
-    background-color: var(--primary-blue);
+    background-color: var(--link-hover);
     border-radius: 2px; /* Optional: rounded underline */
 }
 
@@ -112,7 +116,6 @@ main {
 
 .intro-content p {
     font-size: 1rem;
-    color: #bbbbbb;
     margin-bottom: 1.2rem;
     line-height: 1.6;
 }
@@ -128,6 +131,18 @@ main {
     color: var(--link-hover);
 }
 
+.focuswhere-link {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.focuswhere-link:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
 .intro-image {
     flex: 1;
     display: flex;
@@ -141,6 +156,7 @@ main {
     height: 18rem; /* Make it a square */
     object-fit: cover; /* Ensure the image scales proportionally within the square */
     border-radius: var(--border-radius); /* Rounded edges */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2), 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .stylized-line {
@@ -150,7 +166,7 @@ main {
     margin: 2rem auto;
     display: block;
     border-radius: .1rem; /* Add rounding for a smooth look */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Optional: Add subtle shadow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07); /* Optional: Add subtle shadow */
 }
 
 .gradient-text {
@@ -179,6 +195,7 @@ main {
     border-radius: var(--border-radius);
     background: var(--card-background);
     position: relative;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2), 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .masonry-item img {
@@ -186,10 +203,31 @@ main {
     display: block;
     transition: transform 0.3s ease;
     object-fit: cover; /* Ensures consistent image scaling */
+    height: auto; /* Flexible height to adapt to content */
+    overflow: hidden; /* Ensure content stays within bounds */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.12), 0 8px 15px rgba(0,0,0,0.07);
 }
 
 .masonry-item:hover img {
     transform: scale(1.02); /* Add zoom effect */
+}
+
+.masonry-item .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 8px;
+    font-size: 0.9rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.masonry-item:hover .caption {
+    opacity: 1;
 }
 
 
@@ -212,15 +250,16 @@ main {
     padding: 1rem; /* Adjust padding for a balanced look */
     margin-bottom: 1rem; /* Space between cards */
     position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease;
     width: 100%; /* Full-width cards */
     max-width: 100%; /* Prevent overflow */
     height: auto; /* Flexible height to adapt to content */
     overflow: hidden; /* Ensure content stays within bounds */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.12), 0 8px 15px rgba(0,0,0,0.07);
 }
 
 .projects article:hover {
-    transform: scale(1.01);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15), 0 12px 24px rgba(0,0,0,0.1);
 }
 
 .project-content {
@@ -261,12 +300,9 @@ main {
 }
 
 .project-image img {
-    width: 100%; /* Fill the allocated width */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 0.5rem; /* Rounded corners */
-    object-fit: cover; /* Ensure image fits proportionally */
-    display: block; /* Remove inline element gaps */
-    transition: transform 0.3s;
+    border-radius: var(--border-radius);
+    width: 100%; /* Ensure the image fills its container */
+    object-fit: cover; /* Maintain aspect ratio */
 }
 
 .project-image:hover img{
@@ -311,17 +347,16 @@ main {
 }
 
 p a { /*the tag on eli's account*/
-    color: var(--accent); /* Use the accent color variable */
-    text-decoration: underline; /* Ensure the underline remains visible */
-    font-family: inherit; /* Inherit the font family from the parent paragraph */
-    font-size: inherit; /* Match the font size of the parent paragraph */
-    font-weight: inherit; /* Optional: Ensure consistency in font weight */
     color: var(--primary-blue);
+    text-decoration: underline;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
 }
 
 p a:hover {
-    text-decoration: none; /* Optional: Remove underline on hover */
-    color: darken(var(--accent), 10%); /* Optional: Slightly darken color on hover */
+    color: var(--link-hover);
+    text-decoration: underline;
 }
 
 /* General Styles for Resources Section */
@@ -334,15 +369,15 @@ p a:hover {
     padding: 1rem;
     margin-bottom: 1rem;
     position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease;
     width: 100%;
     height: auto; /* Allow height to adjust dynamically */
     overflow: hidden; /* Ensure content stays within bounds */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.12), 0 8px 15px rgba(0,0,0,0.07);
 }
 
 .resources li:hover {
-    transform: scale(1.01); /* Slight hover effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15), 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
 .resource-content {
@@ -351,6 +386,7 @@ p a:hover {
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center-align text vertically */
+    transition: transform 0.3s ease;
 }
 
 .resource-content h1 {
@@ -386,15 +422,15 @@ p a:hover {
 }
 
 .resource-image img {
-    width: 100%; /* Image fills allocated width */
-    height: 100%; /* Ensure image height fills its container */
-    object-fit: cover; /* Ensure image fits proportionally */
-    border-radius: 0.5rem;
-    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    transition: transform 0.3s ease;
 }
 
 .resource-image:hover img {
-    transform: scale(1.02); /* Slight zoom effect on hover */
+    /* Removed transform scale effect */
 }
 
 
@@ -600,6 +636,10 @@ main {
     padding: 2rem 1rem;
     transition: color 0.3s ease-in-out;
     width: 100%;
+}
+
+.menu-links a.active {
+    color: var(--link-hover);
 }
 
 .menu-links a:hover {
