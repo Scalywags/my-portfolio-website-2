@@ -188,7 +188,7 @@ main {
 
 .masonry-item {
     display: inline-block; /* Ensure items behave like inline elements */
-    margin-bottom: .8rem; /* Spacing between rows */
+    margin-bottom: 0.8rem; /* Spacing between rows - matches column-gap */
     width: 100%; /* Ensure items fit within the column */
     break-inside: avoid; /* Prevent item breaks within columns */
     overflow: hidden;
@@ -597,7 +597,7 @@ main {
     display: block;
     width: 100%;
     height: 3px;
-    background-color: white; /* White icon bars */
+    background-color: black; /* Black icon bars */
     border-radius: 2px;
     transition: all 0.3s ease-in-out;
 }
