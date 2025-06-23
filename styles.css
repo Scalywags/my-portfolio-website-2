@@ -161,7 +161,7 @@ main {
 
 .stylized-line {
     width: 90%; /* Adjust the width as needed */
-    height: .2rem; /* Thickness of the line */
+    height: .1rem; /* Thickness of the line */
     background: var(--text-color-dark);
     margin: 2rem auto;
     display: block;
@@ -181,14 +181,14 @@ main {
 /* Gallery Masonry Layout */
 .gallery {
     column-count: 2; /* Number of masonry columns */
-    column-gap: .8rem; /* Spacing between columns */
+    column-gap: .4rem; /* Spacing between columns */
     width: 60%; /* Ensure the gallery takes up the full width */
     margin: auto;
 }
 
 .masonry-item {
     display: inline-block; /* Ensure items behave like inline elements */
-    margin-bottom: 0.8rem; /* Spacing between rows - matches column-gap */
+    margin-bottom: 0.2rem; /* Spacing between rows - matches column-gap */
     width: 100%; /* Ensure items fit within the column */
     break-inside: avoid; /* Prevent item breaks within columns */
     overflow: hidden;
